@@ -1,4 +1,4 @@
-fetch('nav.html')
+fetch('./nav/nav.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -13,7 +13,7 @@ fetch('nav.html')
             });
 
         // Cargar el archivo footer.html
-        fetch('footer.html')
+        fetch('./footer/footer.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -28,7 +28,7 @@ fetch('nav.html')
             });
 
             //dddddddddddddddddddddddd
-            fetch('home.html')
+            fetch('./home/home.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
