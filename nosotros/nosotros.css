@@ -1,4 +1,4 @@
-  img{
+  .img{
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
@@ -34,3 +34,4 @@
 #h1{
     font-size:5cm;
 }
+
