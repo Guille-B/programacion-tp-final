@@ -2,6 +2,7 @@
 @import url(footer/footer.css);
 @import url(home/home.css);
 @import url(nav/nav.css);
+@import url(catalogo/catalogo.css);
 
 * {
     margin: 0;
