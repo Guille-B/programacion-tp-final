@@ -94,3 +94,7 @@
 .save-button:hover {
   background-color: #218838;
 }
+
+.oculto{
+  display: none;
+}

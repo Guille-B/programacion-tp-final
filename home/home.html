@@ -27,19 +27,20 @@
     <br><br>
   
     <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Imagen de ejemplo">
+        <img src="https://via.placeholder.com/300x200" alt="">
         <div class="card-content">
-            <h2 class="card-title" id="card-title">Título de la Tarjeta</h2>
-            <p class="card-description" id="card-description">Esta es una descripción breve de la tarjeta.</p>
+            <h2 class="card-title" id="titulo">Título de la Tarjeta</h2>
+            <p class="card-description" id="descripcion">Esta es una descripción breve de la tarjeta.</p>
             <button class="card-button" id="editar">Editar</button>
         </div>
-        <div class="edit-form" id="edit-form">
-            <input type="text" id="edit-title" placeholder="Nuevo título">
-            <textarea id="edit-description" rows="4" placeholder="Nueva descripción"></textarea>
-            <button class="card-button save-button" id="save-button">Guardar</button>
+
+        <div class="form-edicion oculto" id="form-edicion" >
+            <input type="text" id="nuevoTitulo" placeholder="Nuevo título">
+            <textarea id="nuevaDescripcion" rows="4" placeholder="Nueva descripción"></textarea>
+            <button class="card-button save-button" id="guardar">Guardar</button>
         </div>
     </div>
 
-    
+    <script src="home.js"></script>
 </body>
 </html>
