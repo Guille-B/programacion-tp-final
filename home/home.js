@@ -1,46 +1,55 @@
- // Obtener elementos del DOM
- const editButton = document.getElementById("editar");
- const editForm = document.getElementById('edit-form');
- const cardTitle = document.getElementById('card-title');
- const cardDescription = document.getElementById('card-description');
- const editTitle = document.getElementById('edit-title');
- const editDescription = document.getElementById('edit-description');
- const saveButton = document.getElementById('save-button');
+document.addEventListener("DOMContentLoaded", () => {
+   const titulo = document.getElementById('titulo');
+   const descripcion = document.getElementById('descripcion');
+   const nuevoTitulo = document.getElementById("nuevoTitulo");
+   const nuevaDescripcion = document.getElementById('nuevaDescripcion');
+   const btnEditar = document.getElementById("editar");
+   const btnGuardar = document.getElementById('guardar');
 
- // Cargar datos desde Local Storage
- function loadData() {
-     const savedTitle = localStorage.getItem('cardTitle');
-     const savedDescription = localStorage.getItem('cardDescription');
-     if (savedTitle) {
-         cardTitle.textContent = savedTitle;
-         editTitle.value = savedTitle;
-     }
-     if (savedDescription) {
-         cardDescription.textContent = savedDescription;
-         editDescription.value = savedDescription;
-     }
- }
+   if(btnEditar){
+      btnEditar.addEventListener("click", mostrarForm);
+   }
+   if(btnGuardar){
+      btnGuardar.addEventListener("click", guardarDatos);
+   }
+ 
+  
 
- // Mostrar el formulario de edición
-    editButton.addEventListener('click', () => {
-     editForm.style.display = editForm.style.display === 'none' || editForm.style.display === '' ? 'block' : 'none';
-     editTitle.value = cardTitle.textContent;
-     editDescription.value = cardDescription.textContent;
- });
+   // Cargar datos desde Local Storage
+   function cargarDatos() {
+       const guardarTitulo = localStorage.getItem('TituloTargeta');
+       const guardarDescripcion = localStorage.getItem('DescripcionTargeta');
+       if (guardarTitulo) {
+           titulo.textContent = guardarTitulo;
+           nuevoTitulo.value = guardarTitulo;
+       }
+       if (guardarDescripcion) {
+           descripcion.textContent = guardarDescripcion;
+           nuevaDescripcion.value = guardarDescripcion;
+       }
+   }
 
- // Guardar los cambios
- saveButton.addEventListener('click', () => {
-     const newTitle = editTitle.value;
-     const newDescription = editDescription.value;
+   function mostrarForm() {
+       const oculto = document.querySelector(".form-edicion");
+       oculto.classList.remove("oculto");
+       nuevoTitulo.value = titulo.textContent;
+       nuevaDescripcion.value = descripcion.textContent;
 
-     cardTitle.textContent = new Título;
-     cardDescription.textContent = newDescription;
+       console.log(titulo);
+       console.log(descripcion);
+   }
 
-     localStorage.setItem('cardTitle', newTitle);
-     localStorage.setItem('cardDescription', newDescription);
+   function guardarDatos() {
+       const tituloN = nuevoTitulo.value;
+       const descripcionN = nuevaDescripcion.value;
 
-     editForm.style.display = 'none';
- });
+       titulo.textContent = tituloN;
+       descripcion.textContent = descripcionN;
 
- // Cargar datos al iniciar
- loadData();
+       localStorage.setItem("TituloTargeta", tituloN);
+       localStorage.setItem("DescripcionTargeta", descripcionN);
+       const oculto = document.querySelector(".edit-form");
+       oculto.classList.add("oculto");
+   }
+   cargarDatos();
+});
