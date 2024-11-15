@@ -12,7 +12,7 @@
     max-width: 100%;  
 }
 
-.p{  
+#descripcion{  
     text-align: justify;
     padding: 5px;
     font-size: larger;
@@ -28,4 +28,7 @@
 #carta #carta2 #carta3{
     background-color: whitesmoke;
     border-radius: 10px;
+}
+#h1{
+    font-size:5cm;
 }
