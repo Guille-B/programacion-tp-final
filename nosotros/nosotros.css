@@ -21,4 +21,11 @@
 .row{
     margin: 0%;
 }
-
+#fototexto{
+    max-height: 400px; 
+    width: 100%;
+}
+#carta #carta2 #carta3{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
