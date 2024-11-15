@@ -7,7 +7,7 @@
 }
 .imagenes {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 2s ease;
 }
 .imagen {
   min-width: 100%;
@@ -68,18 +68,14 @@
   margin-top: 10px;
 }
 
-.card-button:hover {
-  background-color: #0056b3;
-}
 
-.edit-form {
-  display: none;
+.form-edicion {
   padding: 20px;
   background: #f9f9f9;
   border-top: 1px solid #ddd;
 }
 
-.edit-form input, .edit-form textarea {
+.form-edicion input, .form-edicion textarea {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
@@ -98,3 +94,8 @@
 .oculto{
   display: none;
 }
+
+.row{
+  padding: 15px;
+}
+
