@@ -9,10 +9,14 @@
 
 .imagenes {
   display: flex;
+<<<<<<< HEAD
   overflow: hidden;
   width: 100%; /* Para ocupar el 100% del contenedor principal */
   height: auto; /* Ajusta la altura si es necesario */
   max-width: 100%;
+=======
+  transition: transform 2s ease;
+>>>>>>> e1949c338adcd67f2af5cf59753ac3672efb5550
 }
 
 
@@ -80,19 +84,19 @@
   margin-top: 10px;
 }
 
-.card-button:hover {
-  background-color: #0056b3;
-}
 
-.edit-form {
-  display: none;
+.form-edicion {
   padding: 20px;
   background: #f9f9f9;
   border-top: 1px solid #ddd;
 }
 
+<<<<<<< HEAD
 .edit-form input,
 .edit-form textarea {
+=======
+.form-edicion input, .form-edicion textarea {
+>>>>>>> e1949c338adcd67f2af5cf59753ac3672efb5550
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
@@ -110,4 +114,13 @@
 
 .oculto {
   display: none;
+<<<<<<< HEAD
 }
+=======
+}
+
+.row{
+  padding: 15px;
+}
+
+>>>>>>> e1949c338adcd67f2af5cf59753ac3672efb5550
