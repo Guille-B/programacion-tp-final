@@ -1,113 +1,86 @@
-/*document.addEventListener("click", () => {
-   const titulo = document.getElementById('titulo');
-   const descripcion = document.getElementById('descripcion');
-   const nuevoTitulo = document.getElementById("nuevoTitulo");
-   const nuevaDescripcion = document.getElementById('nuevaDescripcion');
-   const btnEditar = document.getElementById("editar");
-   const btnGuardar = document.getElementById('guardar');
-
-   if(btnEditar){
-      btnEditar.addEventListener("click", mostrarForm);
-   }
-   if(btnGuardar){
-      btnGuardar.addEventListener("click", guardarDatos);
-   }
- 
-  
-
-   // Cargar datos desde Local Storage
-   function cargarDatos() {
-       const guardarTitulo = localStorage.getItem('TituloTargeta');
-       const guardarDescripcion = localStorage.getItem('DescripcionTargeta');
-       if (guardarTitulo) {
-           titulo.textContent = guardarTitulo;
-           nuevoTitulo.value = guardarTitulo;
-       }
-       if (guardarDescripcion) {
-           descripcion.textContent = guardarDescripcion;
-           nuevaDescripcion.value = guardarDescripcion;
-       }
-   }
-
-   function mostrarForm() {
-       const oculto = document.querySelector(".form-edicion");
-       oculto.classList.remove("oculto");
-       nuevoTitulo.value = titulo.textContent;
-       nuevaDescripcion.value = descripcion.textContent;
-
-       console.log(titulo);
-       console.log(descripcion);
-   }
-
-   function guardarDatos() {
-       const tituloN = nuevoTitulo.value;
-       const descripcionN = nuevaDescripcion.value;
-
-       titulo.textContent = tituloN;
-       descripcion.textContent = descripcionN;
-
-       localStorage.setItem("TituloTargeta", tituloN);
-       localStorage.setItem("DescripcionTargeta", descripcionN);
-       const oculto = document.querySelector(".edit-form");
-       oculto.classList.add("oculto");
-   }
-   cargarDatos();
-});*/
 
 function init() {
-    const titulo = document.getElementById('titulo');
-    const descripcion = document.getElementById('descripcion');
-    const nuevoTitulo = document.getElementById("nuevoTitulo");
-    const nuevaDescripcion = document.getElementById('nuevaDescripcion');
-    const btnEditar = document.getElementById("editar");
-    const btnGuardar = document.getElementById('guardar');
+    const editarButtons = document.querySelectorAll('.editar');
+    
+    editarButtons.forEach(button => {
+        button.addEventListener('click', mostrarForm);
+    });
 
-    if (btnEditar) {
-        btnEditar.addEventListener("click", mostrarForm);
-    }
-    if (btnGuardar) {
-        btnGuardar.addEventListener("click", guardarDatos);
-    }
+    const guardarButtons = document.querySelectorAll('.guardar');
 
-    // Cargar datos desde Local Storage
-    cargarDatos();
+    guardarButtons.forEach(button => {
+        button.addEventListener('click', guardarDatos);
+    });
 
-    function cargarDatos() {
-        const guardarTitulo = localStorage.getItem('TituloTargeta');
-        const guardarDescripcion = localStorage.getItem('DescripcionTargeta');
-        if (guardarTitulo) {
-            titulo.textContent = guardarTitulo;
-            nuevoTitulo.value = guardarTitulo;
-        }
-        if (guardarDescripcion) {
-            descripcion.textContent = guardarDescripcion;
-            nuevaDescripcion.value = guardarDescripcion;
-        }
-    }
+    function mostrarForm(event) {
+        const card = event.target.closest('.card');
+        const titulo = card.querySelector('.card-title');
+        const descripcion = card.querySelector('.card-description');
+        const nuevoTitulo = card.querySelector('.nuevoTitulo');
+        const nuevaDescripcion = card.querySelector('.nuevaDescripcion');
+        const formEdicion = card.querySelector('.form-edicion');
 
-    function mostrarForm() {
-        const oculto = document.querySelector(".form-edicion");
-        oculto.classList.remove("oculto");
         nuevoTitulo.value = titulo.textContent;
         nuevaDescripcion.value = descripcion.textContent;
-
-        console.log(titulo);
-        console.log(descripcion);
+        formEdicion.classList.remove("oculto");
     }
 
-    function guardarDatos() {
+    function guardarDatos(event) {
+        const card = event.target.closest('.card');
+        const titulo = card.querySelector('.card-title');
+        const descripcion = card.querySelector('.card-description');
+        const nuevoTitulo = card.querySelector('.nuevoTitulo');
+        const nuevaDescripcion = card.querySelector('.nuevaDescripcion');
+        const formEdicion = card.querySelector('.form-edicion');
+
         const tituloN = nuevoTitulo.value;
         const descripcionN = nuevaDescripcion.value;
+
+        if (tituloN === '' || descripcionN === '') {
+            alert('Por favor, complete todos los campos.');
+            return;
+        }
 
         titulo.textContent = tituloN;
         descripcion.textContent = descripcionN;
 
-        localStorage.setItem("TituloTargeta", tituloN);
-        localStorage.setItem("DescripcionTargeta", descripcionN);
-        const oculto = document.querySelector(".form-edicion");
-        oculto.classList.add("oculto");
+        localStorage.setItem("titulo", tituloN);
+        localStorage.setItem("descripcion", descripcionN);
+
+        formEdicion.classList.add("oculto");
     }
 }
 
-// Exportar la función init para que pueda ser llamada desde otro archivo
+// Llamar a la función init para inicializar el comportamiento
 init();
+
+// funcion para mover las imagenes del carrousel
+let index = 0;
+
+function mostrarImagen() {
+    const imagenes = document.getElementById('imagenes');
+    const totalImagenes = document.querySelectorAll('.imagen').length;
+    const desplazamiento = -index * 100;
+    imagenes.style.transform = 'translateX(' + desplazamiento + '%)';
+}
+
+function siguiente() {
+    const totalImagenes = document.querySelectorAll('.imagen').length;
+    index++;
+    if (index >= totalImagenes) {
+        index = 0; // Regresar a la primera imagen
+    }
+    mostrarImagen();
+}
+
+
+function anterior() {
+    const totalImagenes = document.querySelectorAll('.imagen').length;
+    index--;
+    if (index < 0) {
+        index = totalImagenes - 1; // Ir a la última imagen
+    }
+
+    mostrarImagen();
+}
+
