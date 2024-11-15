@@ -1,4 +1,4 @@
-  img{
+.img{
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
@@ -12,7 +12,6 @@
     max-width: 100%;  
 
 }
-
 
 #descripcion{  
     text-align: justify;
