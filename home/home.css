@@ -1,18 +1,29 @@
-
 .carrusel {
   width: 80%;
   margin: auto;
   overflow: hidden;
   position: relative;
+  overflow: hidden; /* Para evitar desbordamientos */
+
 }
+
 .imagenes {
   display: flex;
-  transition: transform 0.5s ease;
+  overflow: hidden;
+  width: 100%; /* Para ocupar el 100% del contenedor principal */
+  height: auto; /* Ajusta la altura si es necesario */
+  max-width: 100%;
 }
+
+
 .imagen {
-  min-width: 100%;
-  box-sizing: border-box;
+  width: auto;
+  height: 100%; /* o puedes intentar con height: auto; si afecta la proporción */
+  max-width: 100%; /* Esto restringe el ancho máximo al contenedor */
+  max-height: 100%; /* Esto restringe la altura máxima al contenedor */
 }
+
+
 .botones {
   position: absolute;
   top: 50%;
@@ -21,6 +32,7 @@
   justify-content: space-between;
   transform: translateY(-50%);
 }
+
 .boton {
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
@@ -79,7 +91,8 @@
   border-top: 1px solid #ddd;
 }
 
-.edit-form input, .edit-form textarea {
+.edit-form input,
+.edit-form textarea {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
@@ -95,6 +108,6 @@
   background-color: #218838;
 }
 
-.oculto{
+.oculto {
   display: none;
 }

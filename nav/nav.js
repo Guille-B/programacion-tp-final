@@ -1,5 +1,6 @@
-   // Función para cargar contenido en el div home
-   function loadContent(page) {
+
+
+function loadContent(page) {
     fetch(page)
         .then(response => {
             if (!response.ok) {
@@ -14,3 +15,4 @@
             console.error('There was a problem with the fetch operation:', error);
         });
 }
+
